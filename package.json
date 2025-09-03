@@ -1,5 +1,5 @@
 {
-  "name": "zora-ai",
+  "name": "zora-mcp-server",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
@@ -25,5 +25,23 @@
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
-  }
+  },
+  "description": "A MCP server for trading Zora Protocol tokens on the Base Mainnet.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6missedcalls/zora-mcp.git"
+  },
+  "keywords": [
+    "ai",
+    "mcp",
+    "blockchain",
+    "web3",
+    "ai-trader"
+  ],
+  "author": "shadowysupercoder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/6missedcalls/zora-mcp/issues"
+  },
+  "homepage": "https://github.com/6missedcalls/zora-mcp#readme"
 }
