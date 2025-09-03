@@ -9,7 +9,7 @@ export const ZoraGetCoinSchema = z.object({
 });
 
 export const ZoraTradeCoinsSchema = z.object({
-  inputToken: z.string().describe("The contract address of the input token."),
+  inputToken: z.string().describe("The contract address of the input token. e.g. eth, usdc, contractAddress of erc20 "),
   tokenAddress: z.string().describe("The contract address of the token to purchase."),
   amountIn: z.string().describe("The amount of the input token to trade."),
   slippage: z.number().describe("The slippage tolerance for trading on the Zora protocol. e.g. 0.05 for 5%"),
