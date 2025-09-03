@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install NPM
-        run: npm install -g npm@latest
+        run: sudo npm install -g npm@latest
 
       - name: Publish to NPM
         run: npm publish
