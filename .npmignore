@@ -1,6 +1,5 @@
 node_modules
 .env
-build
 src
 .github
 .test
@@ -8,5 +7,4 @@ src
 .prettierrc.js
 tsconfig.json
 package-lock.json
-README.md
 CHANGELOG.md
