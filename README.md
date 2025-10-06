@@ -14,7 +14,6 @@ This package provides the `zora-mcp-server` binary, which Claude Desktop (or any
 ## Important Notes
 
 - **Testing environment:** All testing has been performed in **Claude Desktop**.
-- **Ephemeral wallets:** Claude Desktop automatically generates a **new wallet every time you open a new instance**. You will not retain the same address across restarts unless you supply your own `PRIVATE_KEY` in the MCP config.
 
 ## Installation
 
@@ -36,6 +35,7 @@ Configure MCP for Client (Claude, etc.,)
         "CDP_API_KEY_ID": "<CDP_API_KEY_ID>",
         "CDP_API_KEY_SECRET": "<CDP_API_KEY_SECRET>",
         "CDP_WALLET_SECRET": "<CDP_WALLET_SECRET>",
+        "SMART_WALLET_ADDRESS": "<SMART_WALLET_ADDRESS>",
         "PRIVATE_KEY": "<PRIVATE_KEY>",
         "NETWORK_ID": "base-mainnet",
         "ZORA_API_KEY": "<ZORA_API_KEY>"
@@ -83,6 +83,7 @@ Configure MCP for Client (Claude, etc.,)
         "CDP_API_KEY_ID": "<CDP_API_KEY_ID>",
         "CDP_API_KEY_SECRET": "<CDP_API_KEY_SECRET>",
         "CDP_WALLET_SECRET": "<CDP_WALLET_SECRET>",
+        "SMART_WALLET_ADDRESS": "<SMART_WALLET_ADDRESS>",
         "PRIVATE_KEY": "<PRIVATE_KEY>",
         "NETWORK_ID": "base-mainnet",
         "ZORA_API_KEY": "<ZORA_API_KEY>"

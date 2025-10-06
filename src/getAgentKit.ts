@@ -6,6 +6,8 @@ import {
   CdpSmartWalletProvider,
   walletActionProvider,
   wethActionProvider,
+  CdpApiActionProvider,
+  CdpWalletProviderConfig,
 } from "@coinbase/agentkit";
 import { zoraMcpActionProvider } from "./tools/zora/index.js";
 import { Hex } from "viem";
@@ -25,17 +27,33 @@ export async function getAgentKit(): Promise<AgentKit> {
     }
 
     const owner = privateKeyToAccount(privateKey);
+    const networkId = process.env.NETWORK_ID || "base-sepolia";
+    const smartWalletAddress = process.env.SMART_WALLET_ADDRESS as Hex || undefined;
 
-    // Initialize WalletProvider: https://docs.cdp.coinbase.com/agentkit/docs/wallet-management
-    const walletProvider = await CdpSmartWalletProvider.configureWithWallet({
-      apiKeyId: process.env.CDP_API_KEY_ID,
-      apiKeySecret: process.env.CDP_API_KEY_SECRET,
-      walletSecret: process.env.CDP_WALLET_SECRET,
-      networkId: process.env.NETWORK_ID || "base-sepolia", // "base-mainnet" | "base-sepolia"
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      owner: owner as any,
-      paymasterUrl: undefined, // Sponsor transactions: https://docs.cdp.coinbase.com/paymaster/docs/welcome
-    });
+    let walletProvider: CdpSmartWalletProvider;
+
+    if (smartWalletAddress) {
+      walletProvider = await CdpSmartWalletProvider.configureWithWallet({
+        apiKeyId: process.env.CDP_API_KEY_ID,
+        apiKeySecret: process.env.CDP_API_KEY_SECRET,
+        walletSecret: process.env.CDP_WALLET_SECRET,
+        networkId: networkId,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        owner: owner as any,
+        address: smartWalletAddress,
+        paymasterUrl: undefined, // Sponsor transactions: https://docs.cdp.coinbase.com/paymaster/docs/welcome
+      });
+    } else {
+      walletProvider = await CdpSmartWalletProvider.configureWithWallet({
+        apiKeyId: process.env.CDP_API_KEY_ID,
+        apiKeySecret: process.env.CDP_API_KEY_SECRET,
+        walletSecret: process.env.CDP_WALLET_SECRET,
+        networkId: networkId,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        owner: owner as any,
+        paymasterUrl: undefined, // Sponsor transactions: https://docs.cdp.coinbase.com/paymaster/docs/welcome
+      });
+    }
 
     // Initialize AgentKit: https://docs.cdp.coinbase.com/agentkit/docs/agent-actions
     const agentkit = await AgentKit.from({
