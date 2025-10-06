@@ -1,6 +1,6 @@
 {
   "name": "@6missedcalls-ai/zora-mcp-server",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A MCP server for trading Zora Protocol tokens on the Base Mainnet.",
   "keywords": [
     "ai",
