@@ -27,7 +27,7 @@ export async function getAgentKit(): Promise<AgentKit> {
     }
 
     const owner = privateKeyToAccount(privateKey);
-    const networkId = process.env.NETWORK_ID || "base-mainnet";
+    const networkId = process.env.NETWORK_ID || "base-sepolia";
     const smartWalletAddress = process.env.SMART_WALLET_ADDRESS as Hex || undefined;
 
     let walletProvider: CdpSmartWalletProvider;
@@ -37,7 +37,7 @@ export async function getAgentKit(): Promise<AgentKit> {
         apiKeyId: process.env.CDP_API_KEY_ID,
         apiKeySecret: process.env.CDP_API_KEY_SECRET,
         walletSecret: process.env.CDP_WALLET_SECRET,
-        networkId: networkId, // "base-mainnet" | "base-sepolia"
+        networkId: networkId,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         owner: owner as any,
         address: smartWalletAddress,
@@ -48,7 +48,7 @@ export async function getAgentKit(): Promise<AgentKit> {
         apiKeyId: process.env.CDP_API_KEY_ID,
         apiKeySecret: process.env.CDP_API_KEY_SECRET,
         walletSecret: process.env.CDP_WALLET_SECRET,
-        networkId: networkId, // "base-mainnet" | "base-sepolia"
+        networkId: networkId,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         owner: owner as any,
         paymasterUrl: undefined, // Sponsor transactions: https://docs.cdp.coinbase.com/paymaster/docs/welcome
