@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/6missedcalls-zora-mcp-badge.png)](https://mseep.ai/app/6missedcalls-zora-mcp)
+
 ![Logo](https://fuchsia-defiant-cicada-56.mypinata.cloud/ipfs/bafkreiew6etmtyu4qky6ahpehg7t6jbjxpdiijmkhb6yzj3j5p2yetkju4)
 
 # Zora Protocol MCP Server
